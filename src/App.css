@@ -11,15 +11,18 @@ body {
 }
 
 .header {
-	margin-top: 20px;
+	margin-top: 60px;
 	background-color: transparent;
-	text-align: center;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .header img {
 	background-color: transparent;
-	height: 150px;
-	width: 350px;
+	height: 120px;
+	width: 320px;
 }
 
 .content {
