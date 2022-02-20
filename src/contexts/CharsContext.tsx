@@ -8,7 +8,6 @@ type CharactersContextProviderProps = {
 
 type CharactersContextType = {
   characters: Character[]
-  searchedCharName: string
   onSearchChange: (param: string) => void
 }
 
@@ -35,7 +34,7 @@ export default function CharactersContextProvider({ children }: CharactersContex
   }
 
   return (
-    <CharactersContext.Provider value={{ characters: filteredCharacters, searchedCharName, onSearchChange }}>
+    <CharactersContext.Provider value={{ characters: filteredCharacters, onSearchChange }}>
       {children}
     </CharactersContext.Provider>
   )
