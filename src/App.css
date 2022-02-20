@@ -4,13 +4,13 @@ body {
 	font-family: Lato, sans-serif;
 }
 
-.container {
+.ant-layout {
 	background-color: #020111;
 	background-image: url('https://i.pinimg.com/564x/42/95/e9/4295e998fb34e7e46f7ab6283f167425.jpg');
 	min-height: 100vh;
 }
 
-.header {
+.ant-layout-header {
 	margin-top: 60px;
 	background-color: transparent;
 
@@ -19,12 +19,12 @@ body {
 	justify-content: center;
 }
 
-.header img {
+.ant-layout-header img {
 	background-color: transparent;
 	height: 120px;
 	width: 320px;
 }
 
-.content {
-	margin-top: 150px;
+.ant-layout-content {
+	margin-top: 120px;
 }
