@@ -58,7 +58,7 @@ export default function CharsList() {
           <Card title={item.name}>Alo</Card>
         </List.Item>
       )}
-      pagination={{disabled: false, responsive: true}}
+      pagination={{disabled: false}}
       className="list"
     />
   )
