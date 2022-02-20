@@ -1,0 +1,27 @@
+@import 'antd/dist/antd.css';
+
+body {
+	font-family: Lato, sans-serif;
+}
+
+.container {
+	background-color: #020111;
+	background-image: url('https://i.pinimg.com/564x/42/95/e9/4295e998fb34e7e46f7ab6283f167425.jpg');
+	min-height: 100vh;
+}
+
+.header {
+	margin-top: 20px;
+	background-color: transparent;
+	text-align: center;
+}
+
+.header img {
+	background-color: transparent;
+	height: 150px;
+	width: 350px;
+}
+
+.content {
+	margin-top: 150px;
+}
