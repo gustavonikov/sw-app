@@ -1,4 +1,4 @@
-import { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react'
+import { createContext, ReactNode, useEffect, useState } from 'react'
 import api from '../services/api'
 import Character from '../types/Characters'
 
