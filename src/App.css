@@ -34,6 +34,7 @@ input {
 
 :root {
 	--sw-yellow: #f0ce0f;
+	--sw-yellow-hover: #cfb417;
 	--sw-black: #000000f8;
 	--sw-light-grey: #f0f0f0;
 	--sw-shadow-dark: #272626
