@@ -4,20 +4,20 @@
 	margin: 0 auto;
 }
 
-.ant-list-item {
+.ant-list .ant-list-item {
 	margin-bottom: 24px !important;
 }
 
 .ant-list .ant-card {
-	color: #000000f8;
-	background-color: #000000f8;
+	color: var(--sw-black);
+	background-color: var(--sw-black);
 
 	border: none;
 	border-radius: 4px;
 
 	min-width: 150px;
 
-	box-shadow: 0 1px 10px #272626;
+	box-shadow: 0 1px 10px var(--sw-shadow-dark);
 }
 
 .ant-list .ant-card:hover {
@@ -29,8 +29,8 @@
 	border-top-right-radius: 4px;
 	border: none;
 
-	background-color: #f0ce0f;
-	box-shadow: 0 1px 10px #302f2f;
+	background-color: var(--sw-yellow);
+	box-shadow: 0 1px 10px var(--sw-shadow-dark);
 }
 
 .ant-list .ant-card-head-title {
@@ -38,18 +38,25 @@
 }
 
 .ant-list .ant-card-body {
-	color: #f0f0f0;
+	color: var(--sw-light-grey);
 
 	border-radius: 4px;
 
-	font-size: 16px;
-	font-weight: 300;
+	font-weight: 400;
 }
 
-.ant-list .ant-pagination-item,
-.ant-pagination-item-link,
-.ant-pagination-item:not(.ant-pagination-item-active) a {
-	color: #020111;
+.ant-list-pagination .ant-pagination-item-active,
+.ant-list-pagination .ant-pagination-item:hover,
+.ant-list-pagination .ant-pagination-prev:hover .ant-pagination-item-link, 
+.ant-list-pagination .ant-pagination-next:hover .ant-pagination-item-link {
+	border-color: var(--sw-yellow);
+}
+
+.ant-list-pagination .ant-pagination-item-active a,
+.ant-list-pagination .ant-pagination-item a:hover,
+.ant-list-pagination .ant-pagination-prev:hover .ant-pagination-item-link, 
+.ant-list-pagination .ant-pagination-next:hover .ant-pagination-item-link {
+	color: var(--sw-yellow);
 }
 
 .attributes {

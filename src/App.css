@@ -30,3 +30,11 @@ input {
 .ant-layout-content {
 	margin-top: 140px;
 }
+
+
+:root {
+	--sw-yellow: #f0ce0f;
+	--sw-black: #000000f8;
+	--sw-light-grey: #f0f0f0;
+	--sw-shadow-dark: #272626
+}

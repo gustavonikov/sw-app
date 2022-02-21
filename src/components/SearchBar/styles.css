@@ -8,3 +8,17 @@
   align-items: center;
   justify-content: center;
 }
+
+.search-container .ant-input-search .ant-input:hover, 
+.search-container .ant-input-search .ant-input:focus,
+.search-container .ant-input-search-button,
+.search-container .ant-input-affix-wrapper:focus, 
+.search-container .ant-input-affix-wrapper-focused,
+.search-container .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+  border-color: var(--sw-yellow);
+}
+
+.search-container .ant-input-search-button {
+  background-color: var(--sw-yellow);
+}
+

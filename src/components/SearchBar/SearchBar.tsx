@@ -11,7 +11,6 @@ export default function SearchBar({ onSearch } : SearchBarProps) {
     <div className="search-container">
       <Search 
         placeholder="Ache o seu personagem..." 
-        className="search-bar"
         onSearch={onSearch} 
         enterButton 
         allowClear
