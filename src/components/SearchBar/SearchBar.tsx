@@ -2,14 +2,19 @@
 import Search from 'antd/lib/input/Search'
 import './styles.css'
 
-export default function SearchBar() {
+type SearchBarProps = {
+  onSearch: (charName: string) => void
+}
+
+export default function SearchBar({ onSearch } : SearchBarProps) {
   return (
     <div className="search-container">
       <Search 
         placeholder="Ache o seu personagem..." 
         className="search-bar"
-        /* onSearch={onSearch} */ 
+        onSearch={onSearch} 
         enterButton 
+        allowClear
       />
     </div>
   )

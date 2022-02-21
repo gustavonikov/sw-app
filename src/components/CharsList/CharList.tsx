@@ -1,46 +1,15 @@
 import { List, Card } from 'antd'
+import { Character } from '../../types/swapi'
 import './styles.css'
 
-const data = [
-  {
-    name: 'Luke Skywalker'
-  },
-  {
-    name: 'Leia Organa'
-  },
-  {
-    name: 'Anakin Skywalker'
-  },
-  {
-    name: 'Han Solo'
-  },
-  {
-    name: 'Luke Skywalker'
-  },
-  {
-    name: 'Leia Organa'
-  },
-  {
-    name: 'Anakin Skywalker'
-  },
-  {
-    name: 'Han Solo'
-  },
-  {
-    name: 'Anakin Skywalker'
-  },
-  {
-    name: 'Han Solo'
-  },
-  {
-    name: 'Ali baba'
-  },
-  {
-    name: 'Anakin Skywalker'
-  }
-]
+type CharsListProps = {
+  charactersTotal: number
+  characters: Character[]
+  onPageChange: (page: number) => void
+}
 
-export default function CharsList() {
+export default function CharsList({ charactersTotal, characters, onPageChange } : CharsListProps) {
+
   return (
     <List
       grid={{
@@ -52,14 +21,24 @@ export default function CharsList() {
         xl: 5,
         xxl: 5,
       }}
-      dataSource={data}
+      dataSource={characters}
       renderItem={item => (
         <List.Item>
-          <Card title={item.name}>Alo</Card>
+          <Card title={item.name}>
+            <ul className='attributes'>
+              <li>Altura (cm): {item.height}</li>
+              <li>Peso (kg): {item.mass}</li>
+            </ul>
+          </Card>
         </List.Item>
       )}
-      pagination={{disabled: false}}
-      className="list"
+      pagination={{
+        disabled: false, 
+        onChange: onPageChange, 
+        total: charactersTotal,
+        showSizeChanger: false,
+      }}
+      loading={false}
     />
   )
 }
