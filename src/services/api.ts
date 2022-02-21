@@ -1,19 +1,18 @@
-import Character from '../types/Characters'
+import { CharactersData } from '../types/swapi'
 
-const SWAPI_URL  = 'https://swapi.dev/api'
+const SWAPI_CHARS_URL = 'https://swapi.dev/api/people'
 
-const getCharacters = async () : Promise<Character[]> => {
+const getCharactersData = async (searchedCharName: string, page: number) : Promise<CharactersData> => {
   try {
-    const responseData = await fetch(`${SWAPI_URL}/people`)
-    const chars = await responseData.json()
-    console.log('chars :', chars)
+    const responseData = await fetch(`${SWAPI_CHARS_URL}?search=${searchedCharName}&page=${page}`)
+    const charsData: CharactersData = await responseData.json()
 
-    return chars
+    return charsData
   } catch (_) {
-    throw new Error('Não conseguimos achar os personagens, talvez foram consumidos pela força :(')
+    throw new Error('Não conseguimos achar nenhum personagem com esse nome :(')
   }
 }
 
 export default {
-  getCharacters
+  getCharactersData,
 }
