@@ -1,23 +1,28 @@
 import { notification } from 'antd'
 import { CharactersData } from '../types/swapi'
+import { fetchData } from '../utils/cacheApi'
 
-const SWAPI_CHARS_URL = 'https://swapi.dev/api/people'
+const SWAPI_CHARS_URL = 'https://swapi.dev/pi/people'
 
-const getCharactersData = async (searchedCharName: string, page: number) : Promise<CharactersData> => {
+const getCharactersData = async (searchedCharName: string, page: number): Promise<CharactersData | any> => {
   try {
-    const responseData = await fetch(`${SWAPI_CHARS_URL}?search=${searchedCharName}&page=${page}`)
-    const charsData: CharactersData = await responseData.json()
+    const url = `${SWAPI_CHARS_URL}?search=${searchedCharName}&page=${page}`
 
-    return charsData
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (error: any) {
-    notification.error({
-      message: 'Oops! Aconteceu algo inesperado',
-      description: 'Não foi possível encontrar seus personagens, talvez se juntaram à Força...',
-      duration: 7,
-    })
+    const cachedCharsData = await fetchData(url) 
 
-    throw new Error(error.message) 
+    return cachedCharsData
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      notification.error({
+        message: 'Oops! Aconteceu algo inesperado',
+        description: 'Não foi possível encontrar seus personagens, talvez se juntaram à Força :(',
+        duration: 7,
+      })
+  
+      throw new Error(error.message) 
+    } 
+
+    console.error(error)
   }
 }
 
