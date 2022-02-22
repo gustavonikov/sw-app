@@ -4,6 +4,15 @@
 	margin: 0 auto;
 }
 
+.ant-layout-content .ant-result-title, 
+.ant-layout-content .ant-result-subtitle {
+	color: #fff;
+}
+
+.ant-layout-content .ant-result-subtitle {
+	font-size: 16px;
+}
+
 .ant-list .ant-list-item {
 	margin-bottom: 24px !important;
 }

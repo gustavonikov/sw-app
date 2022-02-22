@@ -16,6 +16,7 @@ import { CharactersData } from './types/swapi'
 
 function App() {
   const [charactersData, setCharactersData] = useState<CharactersData>()
+  const [hasError, setHasError] = useState<boolean>(false)
   const { 
     searchedCharName, onSearchChange, charsLoading, setCharsLoadingState 
   } = useContext(CharactersContext)
@@ -27,7 +28,9 @@ function App() {
       .then((charData) => {
         setCharactersData(charData)
       })
-      .catch(error => console.log(error))
+      .catch(() => {
+        setHasError(true)
+      })
       .finally(() => {
         setCharsLoadingState(false)
       })
@@ -52,6 +55,7 @@ function App() {
           characters={characters}
           onPageChange={getCharactersData} 
           loading={charsLoading} 
+          hasError={hasError}
         />
       </Content>
     </Layout>
