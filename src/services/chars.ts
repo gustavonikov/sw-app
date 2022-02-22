@@ -1,28 +1,28 @@
 import { notification } from 'antd'
 import { CharactersData } from '../types/swapi'
-import { fetchData } from '../utils/cacheApi'
+import { fetchData } from '../utils/fetchData'
 
-const SWAPI_CHARS_URL = 'https://swapi.dev/pi/people'
+const SWAPI_CHARS_URL = 'https://swapi.dev/api/people'
 
-const getCharactersData = async (searchedCharName: string, page: number): Promise<CharactersData | any> => {
+async function getCharactersData(charName: string, page: number) {
   try {
-    const url = `${SWAPI_CHARS_URL}?search=${searchedCharName}&page=${page}`
+    const charsData: CharactersData = 
+      await fetchData(`${SWAPI_CHARS_URL}?search=${charName}&page=${page}`)
 
-    const cachedCharsData = await fetchData(url) 
-
-    return cachedCharsData
+    return charsData
   } catch (error: unknown) {
+    notification.error({
+      message: 'Oops! Aconteceu algo inesperado',
+      description: 'Não foi possível encontrar seus personagens, talvez se juntaram à Força :(',
+      duration: 7,
+    })
+
     if (error instanceof Error) {
-      notification.error({
-        message: 'Oops! Aconteceu algo inesperado',
-        description: 'Não foi possível encontrar seus personagens, talvez se juntaram à Força :(',
-        duration: 7,
-      })
-  
       throw new Error(error.message) 
     } 
 
     console.error(error)
+    return
   }
 }
 
