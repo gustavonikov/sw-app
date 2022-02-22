@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { Layout } from 'antd'
+import { Layout, Result } from 'antd'
 import { Content, Header } from 'antd/lib/layout/layout'
 
 import { CharactersContext } from './contexts/CharsContext'
@@ -49,14 +49,20 @@ function App() {
         <img src={starsWarsLogo} alt="star wars logo" />
       </Header>
       <Content>
-        <SearchBar onSearch={onSearchChange} />
-        <CharsList 
-          charactersTotal={charactersTotal}
-          characters={characters}
-          onPageChange={getCharactersData} 
-          loading={charsLoading} 
-          hasError={hasError}
-        />
+        {
+          hasError ? <Result status="500" title="Servidor indisponível" subTitle="Tente novamente mais tarde." />
+            : (
+              <>
+                <SearchBar onSearch={onSearchChange} />
+                <CharsList 
+                  charactersTotal={charactersTotal}
+                  characters={characters}
+                  onPageChange={getCharactersData} 
+                  loading={charsLoading} 
+                />
+              </>
+            )
+        }
       </Content>
     </Layout>
   )
