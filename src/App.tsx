@@ -9,7 +9,7 @@ import starsWarsLogo from './assets/swlogo.png'
 
 import './App.css'
 
-import api from './services/chars'
+import api from './services/charsAPI'
 
 import { parseChars } from './utils/parseChars'
 import { CharactersData } from './types/swapi'
