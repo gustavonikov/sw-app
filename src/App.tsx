@@ -16,14 +16,21 @@ import { CharactersData } from './types/swapi'
 
 function App() {
   const [charactersData, setCharactersData] = useState<CharactersData>()
-  const { searchedCharName, onSearchChange } = useContext(CharactersContext)
+  const { 
+    searchedCharName, onSearchChange, charsLoading, setCharsLoadingState 
+  } = useContext(CharactersContext)
 
   function getCharactersData(page = 1) {
+    setCharsLoadingState(true)
+  
     api.getCharactersData(searchedCharName, page)
       .then((charData) => {
         setCharactersData(charData)
       })
       .catch(error => console.log(error))
+      .finally(() => {
+        setCharsLoadingState(false)
+      })
   }
 
   useEffect(() => {
@@ -42,8 +49,9 @@ function App() {
         <SearchBar onSearch={onSearchChange} />
         <CharsList 
           charactersTotal={charactersTotal}
-          characters={characters} 
+          characters={characters}
           onPageChange={getCharactersData} 
+          loading={charsLoading} 
         />
       </Content>
     </Layout>

@@ -59,6 +59,10 @@
 	color: var(--sw-yellow);
 }
 
+.ant-spin .ant-spin-dot-item {
+	background-color: var(--sw-yellow);
+}
+
 .attributes {
 	list-style: none;
 	margin: 0;
