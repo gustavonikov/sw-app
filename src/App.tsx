@@ -41,7 +41,7 @@ function App() {
   }, [searchedCharName])
 
   const characters = (charactersData && parseChars(charactersData.results)) || []
-  const charactersTotal = charactersData && charactersData.count || 0
+  const charactersTotal = (charactersData && charactersData.count) || 0
 
   return (
     <Layout>
