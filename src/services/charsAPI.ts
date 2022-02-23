@@ -1,6 +1,6 @@
 import { notification } from 'antd'
 import { CharactersData } from '../types/swapi'
-import { fetchData } from '../utils/fetchData'
+import { fetchData } from '../helpers/fetchData'
 
 const SWAPI_CHARS_URL = 'https://swapi.dev/api/people'
 

@@ -11,7 +11,7 @@ import './App.css'
 
 import api from './services/charsAPI'
 
-import { parseChars } from './utils/parseChars'
+import { parseChars } from './helpers/parseChars'
 import { CharactersData } from './types/swapi'
 
 function App() {
