@@ -50,7 +50,8 @@ function App() {
       </Header>
       <Content>
         {
-          hasError ? <Result status="500" title="Servidor indisponível" subTitle="Tente novamente mais tarde." />
+          hasError ? 
+            <Result status="500" title="Servidor indisponível" subTitle="Tente novamente mais tarde." />
             : (
               <>
                 <SearchBar onSearch={onSearchChange} />
