@@ -3,7 +3,7 @@ import { Card, Skeleton, List } from 'antd'
 import './styles.css'
 
 export default function SkeletonList() {
-  const skeletonItems = Array.from({length: 10}, () => Math.floor(Math.random() * 10))
+  const skeletonItems = [{},{},{},{},{},{},{},{},{},{}]
 
   return (
     <List 

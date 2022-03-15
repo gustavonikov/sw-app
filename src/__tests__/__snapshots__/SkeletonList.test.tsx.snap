@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Skeleton List correctly 1`] = `
+<List
+  dataSource={
+    Array [
+      Object {},
+      Object {},
+      Object {},
+      Object {},
+      Object {},
+      Object {},
+      Object {},
+      Object {},
+      Object {},
+      Object {},
+    ]
+  }
+  grid={
+    Object {
+      "gutter": 24,
+      "lg": 4,
+      "md": 4,
+      "sm": 2,
+      "xl": 5,
+      "xs": 1,
+      "xxl": 5,
+    }
+  }
+  renderItem={[Function]}
+/>
+`;
