@@ -8,10 +8,11 @@ type CharsListProps = {
   characters: Character[]
   onPageChange: (page: number) => void
   loading: boolean
+  page: number
 }
 
 export default function CharsList(
-  { charactersTotal, characters, onPageChange, loading } : CharsListProps
+  { charactersTotal, characters, onPageChange, loading, page } : CharsListProps
 ) {
   
   return loading ? 
@@ -43,6 +44,7 @@ export default function CharsList(
           onChange: onPageChange, 
           total: charactersTotal,
           showSizeChanger: false,
+          current: page
         }}
       />
     )

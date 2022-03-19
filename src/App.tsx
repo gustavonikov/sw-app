@@ -18,7 +18,12 @@ function App() {
   const [charactersData, setCharactersData] = useState<CharactersData>()
   const [hasError, setHasError] = useState<boolean>(false)
   const { 
-    searchedCharName, onSearchChange, charsLoading, setCharsLoadingState 
+    searchedCharName, 
+    onSearchChange, 
+    charsLoading, 
+    setCharsLoadingState,
+    listPage,
+    setPage
   } = useContext(CharactersContext)
 
   function getCharactersData(page = 1) {
@@ -27,6 +32,7 @@ function App() {
     api.getCharactersData(searchedCharName, page)
       .then((charData) => {
         setCharactersData(charData)
+        setPage(page)
       })
       .catch(() => {
         setHasError(true)
@@ -60,6 +66,7 @@ function App() {
                   characters={characters}
                   onPageChange={getCharactersData} 
                   loading={charsLoading} 
+                  page={listPage}
                 />
               </>
             )
