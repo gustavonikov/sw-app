@@ -19,7 +19,7 @@ export default function SkeletonList() {
       dataSource={skeletonItems}
       renderItem={() => (
         <List.Item>
-          <Card title={'-'} className="skeleton-card">
+          <Card title={'-'}>
             <Skeleton 
               active 
               title={false}
