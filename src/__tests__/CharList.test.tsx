@@ -181,14 +181,14 @@ describe('validate if characters data are being rendered correctly', () => {
   })
 
   test('if characters characteristics are being displayed', () => {
-    const characterName = CharListComponent.find('.ant-card-head-title').first().text()
-    const characterHeight = CharListComponent.find('.attributes > li').first().text().replace('Altura (cm): ', '')
+    const firstCharacterName = CharListComponent.find('.ant-card-head-title').first().text()
+    const firstCharacterHeight = CharListComponent.find('.attributes > li').first().text().replace('Altura (cm): ', '')
     // not ideal, but its a work around if you didn't put any attribute to identify better
-    const characterWeight = CharListComponent.find('.attributes > li').at(1).text().replace('Peso (kg): ', '') 
+    const firstCharacterWeight = CharListComponent.find('.attributes > li').at(1).text().replace('Peso (kg): ', '') 
 
-    expect(characterName).toBe(charactersMock[0].name)
-    expect(characterHeight).toBe(charactersMock[0].height)
-    expect(characterWeight).toBe(charactersMock[0].mass)
+    expect(firstCharacterName).toBe(charactersMock[0].name)
+    expect(firstCharacterHeight).toBe(charactersMock[0].height)
+    expect(firstCharacterWeight).toBe(charactersMock[0].mass)
   })
 })
 
