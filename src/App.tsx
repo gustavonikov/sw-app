@@ -28,11 +28,11 @@ function App() {
 
   function getCharactersData(page = 1) {
     setCharsLoadingState(true)
+    setPage(page)
   
     api.getCharactersData(searchedCharName, page)
       .then((charData) => {
         setCharactersData(charData)
-        setPage(page)
       })
       .catch(() => {
         setHasError(true)
