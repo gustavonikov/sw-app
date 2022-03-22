@@ -1,13 +1,14 @@
 import { notification } from 'antd'
 import { CharactersData } from '../types/swapi'
-import { fetchData } from '../helpers/fetchData'
+import { fetchWithCacheAPI } from '../helpers/cacheApi'
 
 const SWAPI_CHARS_URL = 'https://swapi.dev/api/people'
 
 async function getCharactersData(charName: string, page: number) {
   try {
-    const charsData: CharactersData = 
-      await fetchData(`${SWAPI_CHARS_URL}?search=${charName}&page=${page}`)
+    const url = `${SWAPI_CHARS_URL}?search=${charName}&page=${page}`
+    const charsData: CharactersData | undefined = 
+      await fetchWithCacheAPI(url, `swapi-${charName}-${page}`)
 
     return charsData
   } catch (error: unknown) {
